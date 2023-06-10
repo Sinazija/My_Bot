@@ -65,3 +65,6 @@ To exit the Notebook to the Personal assistant bot main menu, enter "Exit"
   Linux: /home/Username/Documents/My_folder
   To exit the Assistant bot, enter "Exit”
   To exit the Sort to the Personal assistant bot main menu, enter "Exit"
+  
+  
+  https://app.diagrams.net/#HSinazija%2FMy_Bot%2Fmain%2F%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%B1%D0%B5%D0%B7%20%D0%BD%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F.drawio
