@@ -1,6 +1,37 @@
 from collections import UserDict
 from datetime import datetime
 import re
+from abc import ABC, abstractmethod
+
+
+class AbstractContact(ABC, UserDict):
+    @abstractmethod
+    def add_phone(self):
+        pass
+
+    @abstractmethod
+    def delete_phone(self):
+        pass
+
+    @abstractmethod
+    def edit_phone(self):
+        pass
+
+    @abstractmethod
+    def get_contact(self):
+        pass
+
+    @abstractmethod
+    def add_birthday(self):
+        pass
+
+    @abstractmethod
+    def add_address(self):
+        pass
+
+    @abstractmethod
+    def add_email(self):
+        pass
 
 
 class NumberPhoneError(Exception):
@@ -79,6 +110,7 @@ class Birthday(Field):
     def __repr__(self):
         return f'{self.value}'
 
+
 class Email(Field):
     def __init__(self, email=''):
         self.__private_value = None
@@ -134,7 +166,8 @@ class Address(Field):
     def __repr__(self):
         return f'{self.value}'
 
-class AddressBook:
+
+class AddressBook(AbstractContact):
     def __init__(self, **kwargs):
         self.data = {}
 
@@ -168,7 +201,8 @@ class AddressBook:
     def edit_phone(self, **kwargs):
         for p in self.data['phones']:
             if str(p) == kwargs['old_phone']:
-                self.data['phones'][self.data['phones'].index(p)] = Phone(kwargs['new_phone'])
+                self.data['phones'][self.data['phones'].index(
+                    p)] = Phone(kwargs['new_phone'])
 
         return self.data['phones']
 
@@ -187,7 +221,8 @@ class AddressBook:
     def days_to_birthday(self):
         if self.data['birthday']:
             current_date = datetime.now()
-            data_birthday = datetime.strptime(str(self.data['birthday']), '%d-%m-%Y')
+            data_birthday = datetime.strptime(
+                str(self.data['birthday']), '%d-%m-%Y')
             current_data_birthday = data_birthday.replace(
                 year=current_date.year)
             if current_data_birthday < current_date:

@@ -32,5 +32,13 @@
   ],
   "ipsum": [],
   "python": [],
-  " hello": []
+  " hello": [],
+  "metod": [
+    {
+      "note": "tets abstract_motod",
+      "tags": [
+        "metod"
+      ]
+    }
+  ]
 }

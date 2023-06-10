@@ -89,12 +89,13 @@ def start_bot():
                                 "\nPlease enter your choice or 'help' to view a list of commands: ")
                     if user_input.lower().strip() == 'exit':
                         break
-                    if user_input in command_list:
+                    if user_input.lower() in command_list:
                         run_command(user_input)
-                    if user_input:
+                    elif user_input:
+                        print("Invalid command")
                         continue
-                user_input = input(
-                    "\nHi, this main menu bot, please enter your choice or 'help' to see my options: ")
+            user_input = input(
+                "\nHi, this main menu bot, please enter your choice or 'help' to see my options: ")
 
             if user_input.lower().strip() == 'sort':
                 sort()
@@ -126,5 +127,6 @@ def start_bot():
                     "\nHi, this main menu bot, please enter your choice or 'help' to see my options: ")
     else:
         start_bot()
+
 
 start_bot()

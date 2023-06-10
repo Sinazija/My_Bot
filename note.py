@@ -1,9 +1,20 @@
 import os
 import json
+from abc import ABC, abstractmethod
 
 
-class Note:
+class UserInterface(ABC):
+    @abstractmethod
+    def display_notes(self, note, tags):
+        pass
+
+
+class Note(UserInterface):
     def __init__(self, note, tags):
+        self.note = note
+        self.tags = tags
+
+    def display_notes(self, note, tags):
         self.note = note
         self.tags = tags
 
@@ -33,7 +44,7 @@ class Note:
                 'note': obj.note,
                 'tags': obj.tags
             }
-        return super(Note, self).default(obj)
+        return super().default(obj)
 
 
 class NoteManager:
@@ -187,6 +198,7 @@ class NoteManager:
 
 
 def run_command(command):
+    command = command.lower()
     if command == 'add':
         note = input("Enter the note: ")
         tags = input("Enter the tags (comma-separated): ").split(",")
@@ -218,8 +230,11 @@ def run_command(command):
         note_manager.sort_notes_alphabetically()
     elif command == 'search-all':
         note_manager.search_all()
+    elif command == 'exit':
+        return False
     else:
         print("Invalid command")
+        return True
 
 
 note_manager = NoteManager()
@@ -227,3 +242,7 @@ note_manager = NoteManager()
 
 command_list = ['add', 'search', 'search-all', 'edit-index', 'edit-keyword',
                 'delete-index', 'delete-keyword', 'sort', 'exit']
+#while True:
+    #command = input("Enter a command: ")
+    #if not run_command(command):
+        #break
