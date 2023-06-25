@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "my-bot"
+version = "0.1.0"
+description = "Hello, you are greeted by the Personal assistant bot, made by the \"Nagini\" development team."
+authors = ["Sinazija <sinazija987@gmail.com>"]
+readme = "README.md"
+packages = [{include = "my_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
